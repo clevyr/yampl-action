@@ -1,0 +1,16 @@
+name: Yampl
+inputs:
+  file:
+    description: File to patch
+    required: true
+  values:
+    description: Values to replace
+runs:
+  using: composite
+  steps:
+    - name: Install Yampl
+      shell: bash
+      run: brew install clevyr/tap/yampl
+    - name: Patch file
+      shell: bash
+      run: yampl -i ${{ inputs.file }} -v ${{ inputs.values }}
