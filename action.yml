@@ -5,6 +5,9 @@ inputs:
     required: true
   values:
     description: Values to replace
+  commit_message:
+    description: Enables stefanzweifel/git-auto-commit-action with a commit message
+    default: ""
 runs:
   using: composite
   steps:
@@ -14,3 +17,8 @@ runs:
     - name: Patch file
       shell: bash
       run: yampl -i ${{ inputs.file }} -v ${{ inputs.values }}
+    - name: Commit changes
+      if: inputs.commit_message
+      uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: ${{ inputs.commit_message }}
