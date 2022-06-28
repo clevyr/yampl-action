@@ -1,12 +1,12 @@
 name: Yampl
 inputs:
   file:
-    description: File to patch
+    description: Path to the file that should be patched.
     required: true
   values:
-    description: Values to replace
+    description: List of values to replace in the provided file.
   commit_message:
-    description: Enables stefanzweifel/git-auto-commit-action with a commit message
+    description: If set, this action will invoke stefanzweifel/git-auto-commit-action with the given commit message.
     default: ""
 runs:
   using: composite
