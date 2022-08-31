@@ -5,6 +5,7 @@ inputs:
     required: true
   values:
     description: List of values to replace in the provided file.
+    required: true
   commit_message:
     description: If set, this action will invoke stefanzweifel/git-auto-commit-action with the given commit message.
     default: ""
