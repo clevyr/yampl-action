@@ -1,8 +1,8 @@
 # yampl-action
 
-This action runs [yampl](https://github.com/clevyr/go-yampl) to template values in a yaml file.
+This action runs [yampl](https://github.com/clevyr/yampl) to template values in a yaml file.
 
-See the [yampl](https://github.com/clevyr/go-yampl#readme) readme for more details on yampl templating capabilities.
+See the [yampl](https://github.com/clevyr/yampl#readme) readme for more details on yampl templating capabilities.
 
 # Usage
 
