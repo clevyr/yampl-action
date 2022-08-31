@@ -9,12 +9,22 @@ inputs:
   commit_message:
     description: If set, this action will invoke stefanzweifel/git-auto-commit-action with the given commit message.
     default: ""
+  go_version:
+    description: Go version used to install Yampl
+    default: ~1.18
+  yampl_version:
+    description: Yampl version to install
+    default: latest
 runs:
   using: composite
   steps:
+    - name: Set up Go
+      uses: actions/setup-go@v3
+      with:
+        go-version: ${{ inputs.go_version }}
     - name: Install Yampl
       shell: bash
-      run: brew install clevyr/tap/yampl
+      run: go install github.com/clevyr/yampl@${{ inputs.yampl_version }}
     - name: Patch file
       shell: bash
       run: yampl -i ${{ inputs.file }} -v ${{ inputs.values }}
