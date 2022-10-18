@@ -11,7 +11,7 @@ inputs:
     default: ""
   go_version:
     description: Go version used to install Yampl
-    default: ~1.18
+    default: "1.19"
   yampl_version:
     description: Yampl version to install
     default: latest
