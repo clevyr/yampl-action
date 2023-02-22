@@ -1,0 +1,3 @@
+hello: "" #yampl {{ .hello }}
+image:
+  repository: golang #yampl {{ .Value }}:{{ .tag }}
