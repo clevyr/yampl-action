@@ -32,7 +32,7 @@ runs:
       env:
         FILE: ${{ inputs.file }}
         VALUES: ${{ inputs.values }}
-      run: yampl --inplace "$FILE" --value="$VALUES"
+      run: yampl --inplace --value="$VALUES" $FILE
     - name: Commit changes
       if: inputs.commit_message
       uses: stefanzweifel/git-auto-commit-action@v4

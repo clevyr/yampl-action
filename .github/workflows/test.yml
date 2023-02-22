@@ -10,8 +10,11 @@ jobs:
       - uses: actions/checkout@v3
       - uses: ./
         with:
-          file: test/input.yaml
+          file: |
+            test/input.yaml
+            test/input2.yaml
           values: |
             hello=world
             tag=latest
       - run: diff test/input.yaml test/expected.yaml
+      - run: diff test/input2.yaml test/expected2.yaml
