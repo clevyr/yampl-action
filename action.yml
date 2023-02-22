@@ -27,7 +27,10 @@ runs:
       run: go install github.com/clevyr/yampl@${{ inputs.yampl_version }}
     - name: Patch file
       shell: bash
-      run: yampl -i ${{ inputs.file }} -v ${{ inputs.values }}
+      env:
+        FILE: ${{ inputs.file }}
+        VALUES: ${{ inputs.values }}
+      run: yampl -i "$FILE" -v "$VALUES"
     - name: Commit changes
       if: inputs.commit_message
       uses: stefanzweifel/git-auto-commit-action@v4
