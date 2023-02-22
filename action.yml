@@ -14,7 +14,7 @@ inputs:
     default: "1.19"
   yampl_version:
     description: Yampl version to install
-    default: latest
+    default: "v0.3.6"
 runs:
   using: composite
   steps:
