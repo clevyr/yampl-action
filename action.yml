@@ -12,7 +12,7 @@ inputs:
   go_version:
     description: Go version used to install Yampl
     # renovate datasource=docker depName=golang
-    default: "1.19"
+    default: "1.20"
   yampl_version:
     description: Yampl version to install
     # renovate datasource=github-releases depName=clevyr/yampl
