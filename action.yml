@@ -1,4 +1,5 @@
 name: Yampl
+description: GitHub Action to invoke yampl during CI/CD.
 inputs:
   file:
     description: Path to the file that should be patched.
