@@ -10,6 +10,10 @@ inputs:
   commit_message:
     description: If set, this action will invoke stefanzweifel/git-auto-commit-action with the given commit message.
     default: ""
+  commit_branch:
+    description: Git branch name, where changes should be pushed too. Required if Action is used on the `pull_request` event
+    required: false
+    default: ${{ github.head_ref }}
   go_version:
     description: Go version used to install Yampl
     # renovate datasource=docker depName=golang
@@ -41,3 +45,4 @@ runs:
       uses: stefanzweifel/git-auto-commit-action@v4
       with:
         commit_message: ${{ inputs.commit_message }}
+        branch: ${{ inputs.commit_branch }}
