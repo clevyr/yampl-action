@@ -14,10 +14,6 @@ inputs:
     description: Git branch name, where changes should be pushed too. Required if Action is used on the `pull_request` event
     required: false
     default: ${{ github.head_ref }}
-  go_version:
-    description: Go version used to install Yampl
-    # renovate datasource=docker depName=golang
-    default: "1.20"
   yampl_version:
     description: Yampl version to install
     # renovate datasource=github-releases depName=clevyr/yampl
@@ -25,13 +21,10 @@ inputs:
 runs:
   using: composite
   steps:
-    - name: Set up Go
-      uses: actions/setup-go@v3
-      with:
-        go-version: ${{ inputs.go_version }}
     - name: Install Yampl
-      shell: bash
-      run: go install github.com/clevyr/yampl@${{ inputs.yampl_version }}
+      uses: clevyr/setup-yampl-action@v1
+      with:
+        version: ${{ inputs.yampl_version }}
     - name: Patch file
       shell: bash
       env:

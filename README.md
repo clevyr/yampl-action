@@ -11,7 +11,6 @@ See the [yampl](https://github.com/clevyr/yampl#readme) readme for more details 
 - `file` - Path to the file that should be patched.
 - `values` - List of values to replace in the provided file.
 - `commit_message` - If set, this action will invoke [stefanzweifel/git-auto-commit-action](https://github.com/stefanzweifel/git-auto-commit-action) with the given commit message.
-- `go_version` - Go version used to install Yampl
 - `yampl_version` - Yampl version to install
 
 ## Outputs
