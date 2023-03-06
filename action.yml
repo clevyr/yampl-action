@@ -21,7 +21,7 @@ inputs:
   yampl_version:
     description: Yampl version to install
     # renovate datasource=github-releases depName=clevyr/yampl
-    default: "v0.3.8"
+    default: "v0.3.9"
 runs:
   using: composite
   steps:
