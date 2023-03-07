@@ -11,14 +11,6 @@
     "{{datasource}}",
     "{{updateType}}"
   ],
-  "regexManagers": [
-    {
-      "fileMatch": ["\\.ya?ml$"],
-      "matchStrings": [
-        "# ?renovate datasource=(?<datasource>.+?) depName=(?<depName>.+)\\n.+: [\"']?(?<currentValue>.+?)[\"']?\\n"
-      ]
-    }
-  ],
   "commitMessagePrefix": ":arrow_up:",
   "packageRules": [
     {
