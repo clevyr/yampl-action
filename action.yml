@@ -31,7 +31,7 @@ runs:
         FILE: ${{ inputs.file }}
         VALUES: ${{ inputs.values }}
       run: |
-        shopt -s globstar
+        shopt -s globstar 2>/dev/null || true
         yampl --inplace --value="$VALUES" $FILE
     - name: Commit changes
       if: inputs.commit_message
