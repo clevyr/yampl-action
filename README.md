@@ -4,9 +4,9 @@ This action runs [yampl](https://github.com/clevyr/yampl) to template values in 
 
 See the [yampl](https://github.com/clevyr/yampl#readme) readme for more details on yampl templating capabilities.
 
-# Usage
+## Usage
 
-## Inputs
+### Inputs
 
 | Name             | Description                                                                                                                                                    | Required | Default  |
 |------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|----------|
@@ -15,7 +15,7 @@ See the [yampl](https://github.com/clevyr/yampl#readme) readme for more details 
 | `commit_message` | If set, this action will invoke [stefanzweifel/git-auto-commit-action](https://github.com/stefanzweifel/git-auto-commit-action) with the given commit message. | `false`  | `""`     |
 | `yampl_version`  | The Yampl version to install.                                                                                                                                  | `false`  | `latest` |
 
-## Outputs
+### Outputs
 
 None
 
