@@ -45,5 +45,5 @@ jobs:
           file: deployment.yaml
           values: |
             tag=${{ github.sha }}
-          commit_message: ":arrow_up: Bump deployment to ${{ steps.short-sha.outputs.sha }}"
+          commit_message: "chore: Bump deployment to ${{ steps.short-sha.outputs.sha }}"
 ```
