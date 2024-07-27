@@ -11,7 +11,7 @@ See the [yampl](https://github.com/clevyr/yampl#readme) readme for more details 
 | Name             | Description                                                                                                                                                    | Required | Default  |
 |------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|----------|
 | `file`           | Path to the file that should be patched.                                                                                                                       | `true`   |          |
-| `values`         | List of values to replace in the provided file.                                                                                                                | `true`   |          |
+| `vars`           | List of vars to replace in the provided file.                                                                                                                  | `true`   |          |
 | `commit_message` | If set, this action will invoke [stefanzweifel/git-auto-commit-action](https://github.com/stefanzweifel/git-auto-commit-action) with the given commit message. | `false`  | `""`     |
 | `yampl_version`  | The Yampl version to install.                                                                                                                                  | `false`  | `latest` |
 
@@ -43,7 +43,7 @@ jobs:
         uses: clevyr/yampl-action@v1
         with:
           file: deployment.yaml
-          values: |
+          vars: |
             tag=${{ github.sha }}
           commit_message: "chore: Bump deployment to ${{ steps.short-sha.outputs.sha }}"
 ```

@@ -4,15 +4,17 @@ inputs:
   file:
     description: Path to the file that should be patched.
     required: true
-  values:
+  vars:
     description: List of values to replace in the provided file.
     required: true
+  values:
+    description: "Deprecated: Use vars instead"
+    default: ""
   commit_message:
     description: If set, this action will invoke stefanzweifel/git-auto-commit-action with the given commit message.
     default: ""
   commit_branch:
     description: Git branch name, where changes should be pushed too. Required if Action is used on the `pull_request` event
-    required: false
     default: ${{ github.head_ref }}
   yampl_version:
     description: Yampl version to install
@@ -28,10 +30,19 @@ runs:
       shell: bash
       env:
         FILE: ${{ inputs.file }}
+        VARS: ${{ inputs.vars }}
         VALUES: ${{ inputs.values }}
       run: |
         shopt -s globstar 2>/dev/null || true
-        yampl --inplace --value="$VALUES" $FILE
+        opts=( --inplace )
+        if [[ -n "$VARS" ]]; then
+          opts+=( --var="$VARS" )
+        fi
+        if [[ -n "$VALUES" ]]; then
+          echo '::warning::yampl-action "values" input is deprecated, use "vars" instead.'
+          opts+=( --value="$VALUES" )
+        fi
+        yampl "${opts[@]}" $FILE
     - name: Commit changes
       if: inputs.commit_message
       uses: stefanzweifel/git-auto-commit-action@v5

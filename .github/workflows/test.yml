@@ -17,6 +17,21 @@ jobs:
             test/input.yaml
             test/input2.yaml
             test/*_input.yaml
+          vars: |
+            hello=world
+            tag=latest
+      - run: diff test/input.yaml test/expected.yaml
+      - run: diff test/input2.yaml test/expected2.yaml
+      - run: diff test/glob_input.yaml test/glob_expected.yaml
+
+      - run: git restore test
+      - name: Deprecated values input
+        uses: ./
+        with:
+          file: |
+            test/input.yaml
+            test/input2.yaml
+            test/*_input.yaml
           values: |
             hello=world
             tag=latest
