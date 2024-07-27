@@ -42,6 +42,7 @@ runs:
           echo '::warning::yampl-action "values" input is deprecated, use "vars" instead.'
           opts+=( --value="$VALUES" )
         fi
+        set -x
         yampl "${opts[@]}" $FILE
     - name: Commit changes
       if: inputs.commit_message
