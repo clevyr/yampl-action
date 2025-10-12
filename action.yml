@@ -46,7 +46,7 @@ runs:
         yampl "${opts[@]}" $FILE
     - name: Commit changes
       if: inputs.commit_message
-      uses: stefanzweifel/git-auto-commit-action@v5
+      uses: stefanzweifel/git-auto-commit-action@v7
       with:
         commit_message: ${{ inputs.commit_message }}
         branch: ${{ inputs.commit_branch }}
